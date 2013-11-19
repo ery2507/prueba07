@@ -6,11 +6,20 @@ $(document).ready(function(e){// e de evento
 	document.addEventListener("deviceready",function(){
 		$('#Crear').bind("Click", function(event){
 			db.transaction(function(ejecutar){
-				var SQL="CREATE TABLE Clientes id INTEGER NOT NULL PRIMARY KEYGEN, nombre VARCHAR(64) NOT NULL, apellido VARCHAR(100)"
-				ejecutar.executeSQL(SQL,undefined, function(){
+				var SQL="CREATE TABLE Clientes id INTEGER NOT NULL PRIMARY KEYGEN, nombre VARCHAR(64) NOT NULL, apellido VARCHAR(100)";
+				ejecutar.executeSql(SQL,undefined, function(){
 					navigator.notification.alert("Tabla Creada");
 				}, error);
 					});//Ejecutar
 			});//Crear
+		$('Eliminar').bind("Click", function (event){
+			if(!Navigator.Notification.Confirm("Borrar Tabla?",""))
+			 	return;
+				db.transaction(function(ejecutar){
+					var SQL="DROP TABLE Clientes";
+					navigator.notification.alert("Tabla Borrada");
+				},error);
+			});//Eliminar
 		}, false);//add
+		
 });// ready
