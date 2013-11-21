@@ -49,6 +49,46 @@ $(document).ready(function(e)
     		}, error);//executesql
  		 });//ejecutar
 	});  //insertar
+	
+	$("#Listar").bind ("click", function (event)
+	 {
+ 		db.transaction (function (ejecutar) 
+  		 {
+    	    var sql = "SELECT * FROM clientes";
+   		    ejecutar.executeSql (sql, undefined,function (ejecutar, resultado)
+    	     {
+     		   var a_html = "<ul>";
+      		  if (resultado.rows.length)
+      			{
+        	 		for (var i = 0; i < resultado.rows.length; i++) 
+             		{
+         	  		var fila = resultado.rows.item (i);
+          	  		var v_nombre = fila.nombre;
+          	  		var v_apellido = fila.apellido;
+              		a_html += "<li>" + v_nombre + "&nbsp;" + v_apellido + "</li>";
+        			}
+      	   		}//if
+     	 	  else
+     	   		{
+       		 		a_html += "<li> No hay clientes </li>";
+      			}//else
+         		a_html += "</ul>";
+      
+      		$("#listado").unbind ().bind ("pagebeforeshow", function ()
+      			{
+					//ubicate en el content del listado
+          		  var $contenido = $("#listado div:jqmData(role=content)");
+				  //agrega <ul> <li>     </li> .... </ul>
+          		  $contenido.html (a_html);
+          		  var $ul = $contenido.find ("ul");
+				  //en lugar de viñetas salga en forma de lista
+          		  $ul.listview ();
+       		});//listado
+       		$.mobile.changePage ($("#listado")); 
+          }, error);//resultado
+     	});//ejecutat
+	});//listar
+	
   }, false);//deviceready
 });//document
 
