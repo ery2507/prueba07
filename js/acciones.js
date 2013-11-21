@@ -70,7 +70,7 @@ $(document).ready(function(e)
 					
           	  		var v_nombre = fila.nombre;
           	  		var v_apellido = fila.apellido;
-					alert(vnombre + vapellido);
+					alert(v_nombre);
 					 
               		a_html += "<li>" + v_nombre + "&nbsp;" + v_apellido + "</li>";
         			}
