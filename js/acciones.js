@@ -54,7 +54,7 @@ $(document).ready(function(e)
 	 {
  		db.transaction (function (ejecutar) 
   		 {
-    	    var sql = "SELECT * FROM clientes";
+    	    var sql = "SELECT * FROM Clientes";
    		    ejecutar.executeSql (sql, undefined,function (ejecutar, resultado)
     	     {
      		   var a_html = "<ul>";
