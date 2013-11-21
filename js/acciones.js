@@ -21,7 +21,7 @@ $("#Crear").bind ("click", function (event)
 
 $("#Eliminar").bind ("click", function (event)
 {
-  if (!confirm ("Borrar tabla?", "")) return;;
+  if (!confirm ("Borrar tabla?", "")) return;
   db.transaction (function (transaction) 
   {
     var sql = "DROP TABLE Clientes";
