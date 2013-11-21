@@ -38,8 +38,8 @@ $(document).ready(function(e)
 	
 	$("#Insertar").bind ("click", function (event)
 	{
- 	   var v_nombre = $("#nombre").val ();
- 	   var v_apellido = $("#apellido").val ();
+ 	   var v_nombre = $("#Nombre").val ();
+ 	   var v_apellido = $("#Apellido").val ();
   	   db.transaction (function (ejecutar) 
   		{
     		var sql = "INSERT INTO Clientes (nombre, apellido) VALUES (?, ?)";
