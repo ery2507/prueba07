@@ -59,9 +59,11 @@ $(document).ready(function(e)
     	    var sql = "SELECT * FROM Clientes";
    		    ejecutar.executeSql (sql, undefined,function (ejecutar, resultado)
     	     {
+				 alert("sql");
      		   var a_html = "<ul>";
       		  if (resultado.rows.length)
       			{
+					 alert("si");
         	 		for (var i = 0; i < resultado.rows.length; i++) 
              		{
          	  		var fila = resultado.rows.item (i);
@@ -69,6 +71,7 @@ $(document).ready(function(e)
           	  		var v_nombre = fila.nombre;
           	  		var v_apellido = fila.apellido;
 					alert(vnombre + vapellido);
+					 
               		a_html += "<li>" + v_nombre + "&nbsp;" + v_apellido + "</li>";
         			}
       	   		}//if
