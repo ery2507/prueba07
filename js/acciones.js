@@ -52,8 +52,10 @@ $(document).ready(function(e)
 	
 	$("#Listar").bind ("click", function (event)
 	 {
+		 alert("listar");
  		db.transaction (function (ejecutar) 
   		 {
+			 alert("ejecutar");
     	    var sql = "SELECT * FROM Clientes";
    		    ejecutar.executeSql (sql, undefined,function (ejecutar, resultado)
     	     {
@@ -63,8 +65,10 @@ $(document).ready(function(e)
         	 		for (var i = 0; i < resultado.rows.length; i++) 
              		{
          	  		var fila = resultado.rows.item (i);
+					
           	  		var v_nombre = fila.nombre;
           	  		var v_apellido = fila.apellido;
+					alert(vnombre + vapellido);
               		a_html += "<li>" + v_nombre + "&nbsp;" + v_apellido + "</li>";
         			}
       	   		}//if
